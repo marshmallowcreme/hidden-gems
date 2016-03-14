@@ -1,0 +1,26 @@
+<!--
+<div class="pusher">
+<div class="ui vertical masthead center aligned segment">
+<div class="ui text container">
+<h1>Hidden Gems</h1>
+<h2>A Directory of Therapists in<br />The Diamond Approach</h2>
+<%= image_tag("gem.png") %>
+</div>
+</div>
+</div>
+-->
+<div class="ui container equal width form segment">
+  <div class="ui container">
+    <h1 class="ui header">Search for Healing Practitioners</h1>
+    <h4 class="ui header">Enter any location.</h4>
+    <p>You may use a street address, city, state or zip code.</p>
+    <%= form_tag("/search/") do %>
+    <div class="ui category" >
+      <div class="ui huge input">
+        <input class="prompt" type="text" placeholder="Enter your location" id="gmaps-search" value="" name="location">
+      </div>
+      <button class="ui huge button primary" type="submit"> <i class="search icon"></i> Search</button>
+    </div>
+    <% end %>
+  </div>
+</div>

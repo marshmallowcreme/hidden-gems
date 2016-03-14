@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="ui heading">Profiles</h1>
+
+<div class="ui container">
+  <div class="ui link cards">
+    <% @profiles.each do |profile| %>
+    <div class="card">
+      <% if profile.profile_photo.present? %>
+      <%= link_to image_tag(profile.profile_photo), profile, class: :image %>
+      <% else %>
+      <%= link_to image_tag("http://semantic-ui.com/examples/assets/images/wireframe/image.png"), profile, class: :image %>
+      <% end %>
+      <div class="content">
+        <%= link_to profile.name, profile, class: :header %>
+        <div class="meta">
+          <p><%= profile.location %></p>
+          <p><%= profile.headline %></p>
+        </div>
+        <div class="description">
+          <%= profile.bio %>
+        </div>
+      </div>
+      <div class="extra content">
+        <span class="right floated">
+        </span>
+        <% unless profile.group.blank? %>
+        <span>
+          <div class="ui label"><%= semantic_icon(:diamond) %> <%= profile.group %></div>
+        </span>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <% if 1==0 %>    <% @profiles.each do |profile| %>
+  <div class="item">
+    <div class="ui small image">
+      <img src="http://semantic-ui.com/examples/assets/images/wireframe/image.png">
+    </div>
+    <div class="content">
+      <%= link_to profile.headline, profile, class: :header %>
+      <div class="meta">
+        <a><%= profile.city %>, <%= profile.state %></a>
+      </div>
+      <div class="description">
+        <%= profile.bio %>
+      </div>
+      <div class="extra">
+        <div class="ui label">        <%= semantic_icon(:diamond) %> CA-DH8</div>
+
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<% end %>
+</div>

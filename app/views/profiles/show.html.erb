@@ -1,0 +1,59 @@
+<div class="ui container large equal width segment">
+  <div class="ui relaxed divided items">
+    <div class="item">
+
+      <div class="content">
+        <div class="ui large image left floated">
+          <% if @profile.profile_photo.present? %>
+          <%= image_tag @profile.profile_photo, class: "profile-photo" %>
+          <% else %>
+          <img src="http://semantic-ui.com/examples/assets/images/wireframe/image.png">
+          <% end %>
+
+          <h3 class="ui header">
+            <div class="content">
+              Contact Me
+            </div>
+          </h3>
+          <% unless @profile.email.blank? %>
+          <button class="ui labeled icon button primary" href="mailto:<%= @profile.email %>"><i class="mail icon"></i> Email</button>
+          <% end %>
+          <% unless @profile.phone.blank? %>
+          <button class="ui labeled icon button primary" href="tel:<%= @profile.phone %>"><i class="phone icon"></i> Call</button>
+          <% end %>
+          <% unless @profile.website.blank? %>
+          <button class="ui labeled icon button primary" href="<%= @profile.website %>"><i class="globe icon"></i> Web</button>
+          <% end %>
+
+        </div>
+        <h1 class="ui huge header"><%= @profile.name %></h1>
+        <div class="meta">
+          <% unless @profile.headline.blank? %><div class="ui header"><%= @profile.headline %></div><% end %>
+          <div><%= @profile.location %> <span class="ui label"><%= semantic_icon(:diamond) %> CA-DH8</span></div>
+
+        </div>
+        <div class="description">
+          <p>
+            <% unless @profile.bio.blank? %>
+            <%= @profile.bio %>
+            <% else %>
+            Edit your profile to update your biography.
+            <% end %>
+          </p>
+
+          <h3 class="ui header">
+            <div class="content">
+              Specialties
+            </div>
+          </h3>
+
+          <span>
+            <% @profile.specialties.each do |s| %>
+            <a class="ui tag label"><%= s.name %></a>
+            <% end %>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

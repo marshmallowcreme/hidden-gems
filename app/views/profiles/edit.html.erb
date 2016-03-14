@@ -1,0 +1,102 @@
+<div class="ui container large equal width form segment">
+  <div class="ui container">
+    <h1 class="ui header">Manage Your Profile</h1>
+
+    <div class="ui form">
+      <%= form_for(@profile, url: profile_path(@profile.id)) do |f| %>
+      <h3 class="ui dividing header">Basic Information</h3>
+      <div class="ui field">
+        <%= f.text_field :name, placeholder: "Full Name", autofocus: true %>
+      </div>
+
+      <div class="ui field">
+        <%= f.label :profile_photo %>
+        <%= f.file_field :profile_photo %>
+      </div>
+
+      <div class="ui field">
+        <%= f.text_field :headline, placeholder: "Headline" %>
+      </div>
+
+      <div class="ui field">
+        <%= f.text_field :group, placeholder: "Diamond Heart Group" %>
+      </div>
+
+      <div class="ui field">
+        <%= f.text_area :bio, placeholder: "Biography", rows: 4 %>
+      </div>
+
+      <h3 class="ui dividing header">Address</h3>
+      <div class="ui field">
+        <div class="two fields">
+          <div class="twelve wide field">
+            <%= f.text_field :address_one, placeholder: "Street Address" %>
+          </div>
+          <div class="four wide field">
+            <%= f.text_field :address_two, placeholder: "Apt #" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="three fields">
+        <div class="ui field">
+          <%= f.text_field :city, placeholder: "City" %>
+        </div>
+        <div class="ui field">
+          <%= f.text_field :state, placeholder: "State" %>
+        </div>
+        <div class="ui field">
+          <%= f.text_field :postal, placeholder: "Postal Code" %>
+        </div>
+      </div>
+
+      <h3 class="ui dividing header">Specializations</h3>
+      <div class="ui field">
+        <div class="ui labeled input">
+          <div class="ui label">Select your specializations</div>
+          <%= f.collection_select(:specialty_ids, Specialty.all, :id, :name,
+          {include_blank: false, include_hidden: false, selected: @profile.specializations.map(&:specialty_id)},
+          {multiple: true, class: "ui dropdown fluid"}) %>
+        </div>
+      </div>
+
+      <h3 class="ui dividing header">Contact Information</h3>
+      <div class="ui field">
+        <div class="ui labeled input">
+          <!-- <div class="ui inline label">Email</div> -->
+          <div class="ui inline label"><%= semantic_icon(:mail, :outline) %></div>
+          <%= f.email_field :email, placeholder: "hello@example.com" %>
+          <!-- <%= semantic_icon(:mail, :outline) %> -->
+        </div>
+      </div>
+
+      <div class="ui field">
+        <div class="ui labeled input">
+          <!-- <div class="ui inline label">Telephone</div> -->
+          <div class="ui inline label"><%= semantic_icon(:phone) %></div>
+          <%= f.telephone_field :phone, placeholder: "+1 (555) 555-5555" %>
+          <!-- <%= semantic_icon(:phone) %> -->
+        </div>
+      </div>
+
+      <div class="ui field">
+        <div class="ui labeled input">
+          <!-- <div class="ui inline label">URL</div> -->
+          <div class="ui inline label"><%= semantic_icon(:linkify) %></div>
+          <%= f.url_field :website, placeholder: "http://example.com" %>
+          <!-- <%= semantic_icon(:linkify) %> -->
+        </div>
+      </div>
+
+
+      <div class="ui field">
+        <%= f.submit "Update", class: "ui submit button" %>
+      </div>
+      <% end %>
+    </div>
+
+    <br />
+    <%= link_to 'Show', @profile %> |
+    <%= link_to 'Back', profiles_path %>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+/*// Place all the styles related to the Profiles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*/
+
+h1 {
+	font-family:"Brandon Grotesque";
+	text-transform: uppercase;
+	color:#7a8bcb;
+	margin:0.8em auto 0;
+	font-size:230%;
+	padding:0;
+}
+
+.ui.inverted.menu {
+	background-color:#2f3e79 !important;
+}
+
+.main.container {
+	margin-top: 6em;
+}
+
+h2 {
+	color:#ffffff;
+	font-family:"Seravek";
+	font-variant: "Medium";
+	font-size:120%;
+	text-align: center;
+	margin:0.4em 0;
+
+}
+
+#container {
+	display:flex;
+	margin:auto;
+	height:100vh;
+	flex-direction:column;
+}
+
+#gem{
+	margin:0.8em auto;
+	text-align: center;
+	display: block;
+	width:30%;
+}
+
+.ui.form .inline.label {
+	width: 2.6em;
+}
+
+.profile-photo {
+	width: 100%;
+	height: 100%;
+}
